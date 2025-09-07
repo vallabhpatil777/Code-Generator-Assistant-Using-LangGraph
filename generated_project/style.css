@@ -1,0 +1,101 @@
+/* Root variables for theming and spacing */
+:root {
+    --primary-color: #007BFF;
+    --primary-dark: #0056b3;
+    --bg-color: #fafafa;
+    --app-bg: #ffffff;
+    --spacing: 1rem;
+    --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Base reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body layout – center content vertically and horizontally */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    margin: 0;
+}
+
+/* Counter app container */
+#counter-app {
+    max-width: 400px;
+    width: 100%;
+    padding: var(--spacing);
+    border-radius: 0.75rem;
+    background-color: var(--app-bg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing);
+}
+
+/* Count display styling */
+#countDisplay {
+    font-size: 4rem;
+    text-align: center;
+    margin: var(--spacing) 0;
+}
+
+/* Button styling – shared for all three buttons */
+#incBtn,
+#decBtn,
+#resetBtn {
+    width: 150px;               /* default width on larger screens */
+    max-width: 80%;             /* ensures it never exceeds 80% of container */
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 0.5rem;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    text-align: center;
+}
+
+#incBtn:hover,
+#decBtn:hover,
+#resetBtn:hover,
+#incBtn:focus,
+#decBtn:focus,
+#resetBtn:focus {
+    background-color: var(--primary-dark);
+    outline: none;
+    transform: translateY(-2px);
+}
+
+/* Responsive design for screens smaller than 600px */
+@media (max-width: 600px) {
+    /* Stack buttons vertically */
+    #incBtn,
+    #decBtn,
+    #resetBtn {
+        width: 80%;
+        margin-bottom: var(--spacing);
+    }
+
+    /* Reduce font size of count display */
+    #countDisplay {
+        font-size: 2.5rem;
+    }
+
+    /* Slightly smaller button text */
+    #incBtn,
+    #decBtn,
+    #resetBtn {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
